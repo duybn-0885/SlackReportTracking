@@ -41,3 +41,4 @@ def get_spent_time(user_email, date=datetime.today().strftime('%Y-%m-%d')):
                 if item['field'] == 'timespent':
                     total_log_time += int(item['to']) - int(item['from'])
 
+    return total_log_time
