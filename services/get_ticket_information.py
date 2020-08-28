@@ -26,9 +26,9 @@ def get_ticket_change_log(ticket_id_or_key):
     return json.dumps(json.loads(response.text), sort_keys=True, indent=4, separators=(',', ': '))
 
 
-def get_spent_time(user_email, date=datetime.today().strftime('%Y-%m-%d')):
+def get_spent_time(user_email, ticket_id, date=datetime.today().strftime('%Y-%m-%d')):
     total_log_time = 0
-    ticket_change_log = json.loads(get_ticket_change_log('DY-504'))
+    ticket_change_log = json.loads(get_ticket_change_log(ticket_id))
     change_log_values = ticket_change_log['values']
 
     for change_log_value in reversed(change_log_values):

@@ -22,8 +22,9 @@ def get_log_time():
     logging.info('--------------------------Start get log time---------------------------------')
     user_email = request.args.get('user_email')
     date_log = request.args.get('date_log')
-    total_log_time = _convert_time_standard_time(get_spent_time(user_email, date_log))
-    message = 'Total log time of %s in %s is %s'%(user_email, date_log, total_log_time)
+    ticket_id = request.args.get('ticket_id')
+    total_log_time = _convert_time_standard_time(get_spent_time(user_email, ticket_id, date_log))
+    message = 'Total log time of %s in %s for %s is %s'%(user_email, ticket_id, date_log, total_log_time)
 
     return (jsonify({'message': message}), 200, {'Content-Type': 'application/json'})
 
